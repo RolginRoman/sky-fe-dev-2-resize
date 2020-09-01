@@ -15,7 +15,7 @@ import { ViewportConfigToken, IConfig } from "./viewport.config";
   providers: [
     {
       provide: ViewportConfigToken,
-      useValue: { medium: 1, large: 2 } as IConfig
+      useValue: { medium: 200, large: 500 } as IConfig
     }
   ]
 })
