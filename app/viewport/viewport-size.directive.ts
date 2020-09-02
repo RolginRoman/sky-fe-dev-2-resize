@@ -67,7 +67,6 @@ export class IfViewportSizeDirective implements OnInit, OnDestroy {
         takeUntil(this.destroy$)
       )
       .subscribe(shouldRender => {
-        console.log(`Result: ${this.ifViewportSize} ${shouldRender}`);
         this.vcr.clear(); // should viewRef be detached or cleared? Depends on task
         if (shouldRender) {
           this.vcr.createEmbeddedView(this.template);

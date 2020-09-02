@@ -6,7 +6,7 @@ import { TestComponent } from "./test.component";
 import { ViewportModule } from "./viewport/viewport.module";
 import { IConfig } from "./viewport/viewport.config";
 
-const config: IConfig = { medium: 700, large: 1500 };
+const config: IConfig = { medium: 400, large: 700 };
 
 @NgModule({
   imports: [BrowserModule, ViewportModule.forRoot(config)],
