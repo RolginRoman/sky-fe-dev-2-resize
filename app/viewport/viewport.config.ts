@@ -5,4 +5,4 @@ export interface IConfig {
   readonly large: number;
 }
 
-export const ViewportConfigToken = new InjectionToken<IConfig>('Viewport Config Token');
+export const VIEWPORT_CONFIG_TOKEN = new InjectionToken<IConfig>('Viewport Config Token');

@@ -8,9 +8,9 @@ import {
   ViewContainerRef,
   OnDestroy
 } from "@angular/core";
-import { ViewportConfigToken, IConfig } from "./viewport.config";
+import { VIEWPORT_CONFIG_TOKEN, IConfig } from "./viewport.config";
 import { ViewportResizeService } from "./viewport-resize.service";
-import { filter, map, takeUntil, catchError, tap } from "rxjs/operators";
+import { map, takeUntil, catchError } from "rxjs/operators";
 import { Subject, of } from "rxjs";
 
 const enum ViewportBoundaries {
@@ -48,10 +48,10 @@ export class IfViewportSizeDirective implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
   constructor(
-    @Optional() @Inject(ViewportConfigToken) private viewportConfig: IConfig,
-    private template: TemplateRef,
+    private template: TemplateRef<any>,
     private vcr: ViewContainerRef,
-    private viewportService: ViewportResizeService
+    private viewportService: ViewportResizeService,
+    @Optional() @Inject(VIEWPORT_CONFIG_TOKEN) private viewportConfig: IConfig,
   ) {
     if (!viewportConfig) {
       throw new Error("Provider for @IConfig doesn't found");

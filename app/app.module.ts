@@ -4,17 +4,13 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import { TestComponent } from "./test.component";
 import { ViewportModule } from "./viewport/viewport.module";
-import { ViewportConfigToken, IConfig } from "./viewport/viewport.config";
+import { IConfig } from "./viewport/viewport.config";
+
+const config: IConfig = { medium: 700, large: 1500 };
 
 @NgModule({
-  imports: [BrowserModule, ViewportModule],
+  imports: [BrowserModule, ViewportModule.forRoot(config)],
   declarations: [AppComponent, TestComponent],
   bootstrap: [AppComponent],
-  providers: [
-    {
-      provide: ViewportConfigToken,
-      useValue: { medium: 200, large: 500 } as IConfig
-    }
-  ]
 })
-export class AppModule {}
+export class AppModule { }

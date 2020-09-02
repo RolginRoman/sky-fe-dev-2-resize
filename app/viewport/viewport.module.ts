@@ -1,12 +1,20 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { NgModule, ModuleWithProviders } from "@angular/core";
 import { IfViewportSizeDirective } from "./viewport-size.directive";
 import { ViewportResizeService } from "./viewport-resize.service";
+import { IConfig, VIEWPORT_CONFIG_TOKEN } from "./viewport.config";
 
 @NgModule({
-  imports: [CommonModule],
   exports: [IfViewportSizeDirective],
   declarations: [IfViewportSizeDirective],
-  providers: [ViewportResizeService]
 })
-export class ViewportModule {}
+export class ViewportModule {
+  static forRoot(config: IConfig): ModuleWithProviders {
+    return {
+      ngModule: ViewportModule,
+      providers: [
+        ViewportResizeService,
+        { provide: VIEWPORT_CONFIG_TOKEN, useValue: config }
+      ]
+    }
+  }
+}

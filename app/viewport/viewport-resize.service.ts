@@ -3,10 +3,6 @@ import { DOCUMENT } from "@angular/common";
 import { defer, fromEvent } from "rxjs";
 import { map, throttleTime, startWith, shareReplay } from "rxjs/operators";
 
-// const fromRAF = (): Observable<void> => {
-// return (interval(10, animationFrameScheduler) as unknown) as Observable<void>;
-// };
-
 interface ViewportSizeEvent {
   readonly width: number;
 }
